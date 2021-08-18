@@ -71,7 +71,18 @@ namespace MobileStore
             string color = Console.ReadLine();
             Console.Write("Enter store: ");
             string store = Console.ReadLine();
-            if (String.IsNullOrEmpty(c_name) || String.IsNullOrEmpty(m_name) || String.IsNullOrEmpty(color) || i == 0 || j == 0 || String.IsNullOrEmpty(store))
+            Console.Write("Enter Price: ");
+            string price = Console.ReadLine();
+            int k;
+            bool p_success = int.TryParse(price, out k);
+            if (!success)
+            {
+                Console.WriteLine("Please enter integer value");
+                Console.Write("Enter Price: ");
+                price = Console.ReadLine();
+                p_success = int.TryParse(price, out k);
+            }
+            if (String.IsNullOrEmpty(c_name) || String.IsNullOrEmpty(m_name) || String.IsNullOrEmpty(color) || i == 0 || j == 0 || k == 0 || String.IsNullOrEmpty(store))
             {
                 Console.WriteLine("All fields are required");
             }
@@ -89,6 +100,7 @@ namespace MobileStore
                 Storage = j,
                 Color = color,
                 Store = store,
+                Price = k,
                 Store_Count = (c_name + "_" + m_name + "_" + i + "_" + j + "_" + color + "_" + store).ToUpper()
             };
             LProduct.Add(dproduct);

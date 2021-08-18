@@ -7,6 +7,7 @@
     "Storage": 128,
     "Color": "White",
     "Store": null,
+    "Price": 10000,
     "Store_Count": "REDMI_NOTE10_8_128_WHITE"
   },
   {
@@ -17,6 +18,7 @@
     "Storage": 128,
     "Color": "Pink",
     "Store": "Mumbai",
+    "Price": 10000,
     "Store_Count": "Redmi_Note5_8_128_Pink_Mumbai"
   },
   {
@@ -27,6 +29,7 @@
     "Storage": 128,
     "Color": "White",
     "Store": "Pune",
+    "Price": 10000,
     "Store_Count": "OPPO_NOTE10_8_128_WHITE_PUNE"
   },
   {
@@ -37,6 +40,29 @@
     "Storage": 28,
     "Color": "black",
     "Store": "avc",
+    "Price": 10000,
     "Store_Count": "ABC_PQR_8_28_BLACK_AVC"
+  },
+  {
+    "P_Id": 5,
+    "C_Name": "Oppo",
+    "M_Name": "Note10",
+    "Ram": 8,
+    "Storage": 128,
+    "Color": "White",
+    "Store": "Pune",
+    "Price": 10000,
+    "Store_Count": "OPPO_NOTE10_8_128_WHITE_PUNE"
+  },
+  {
+    "P_Id": 6,
+    "C_Name": "Redmi",
+    "M_Name": "Note11",
+    "Ram": 8,
+    "Storage": 128,
+    "Color": "Pink",
+    "Store": "Mumbai",
+    "Price": 25000,
+    "Store_Count": "REDMI_NOTE11_8_128_PINK_MUMBAI"
   }
 ]

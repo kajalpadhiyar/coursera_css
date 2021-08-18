@@ -10,6 +10,7 @@ namespace MobileStore
 {
     class Home
     {
+        //Read data from json
         static List<Customer.kCustomer> LCustomer = JsonConvert.DeserializeObject<List<Customer.kCustomer>>(File.ReadAllText(@"customer.json"));
         static List<Product.kMumbai> LProduct = JsonConvert.DeserializeObject<List<Product.kMumbai>>(File.ReadAllText(@"Product.json"));
         public static void Signup()
@@ -53,7 +54,7 @@ namespace MobileStore
             else
             {
                 Console.WriteLine("Already exist\nDisplay Information:");
-                Console.WriteLine($"First Name : {firstName}\nLast Name : {lastName}\n Location : {location}\n Dob : {sdob}");
+                Console.WriteLine($"First Name : {firstName}\nLast Name : {lastName}\nLocation : {location}\nDob : {sdob}");
             }
             Program.Firstpg();
         }
@@ -87,12 +88,14 @@ namespace MobileStore
                     switch (choice)
                     {
                         case 1:
+                            //search customer
                             AllFun.Search_Customer();
                             Console.WriteLine("Click 1: Search Customer by first and last name\nClick 2: View all customers\nClick 3: Add a Product\nClick 4: View all Products\nClick 5: Exit");
                             choice = int.Parse(Console.ReadLine());
                             break;
 
                         case 2:
+                            //view all customers
                             foreach (var o in LCustomer)
                             {
                                 if (o.FirstName.ToString() != "Admin" && o.LastName.ToString() != "Admin")
@@ -105,6 +108,7 @@ namespace MobileStore
                             break;
 
                         case 3:
+                            //add product into json
                             AllFun.Add_Products();
                             Console.WriteLine("Click 1: Search Customer by first and last name\nClick 2: View all customers\nClick 3: Add a Product\nClick 4: View all Products\nClick 5: Exit");
                             choice = int.Parse(Console.ReadLine());
@@ -134,6 +138,7 @@ namespace MobileStore
                     switch (choice)
                     {
                         case 1:
+                            //view own details
                             foreach (var o in LCustomer)
                             {
                                 if (o.FirstName.ToString() == firstName && o.LastName.ToString() == lastName)
@@ -154,12 +159,14 @@ namespace MobileStore
                             choice = int.Parse(Console.ReadLine());
                             break;
                         case 3:
+                            //Search Product
                             Book_Order.Search_Product();
                             Console.WriteLine("Click 1: View own details\nClick 2 : View All Products\nClick 3 : Search Product By Name\nClick 4 : Book an Order\nClick 5 : Exit");
                             choice = int.Parse(Console.ReadLine());
                             break;
 
                         case 4:
+                            //Book product
                             Book_Order.Product_Book(firstName);
                             break;
                         case 5:
