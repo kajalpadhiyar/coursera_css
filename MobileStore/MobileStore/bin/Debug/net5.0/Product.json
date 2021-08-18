@@ -28,5 +28,15 @@
     "Color": "White",
     "Store": "Pune",
     "Store_Count": "OPPO_NOTE10_8_128_WHITE_PUNE"
+  },
+  {
+    "P_Id": 4,
+    "C_Name": "Abc",
+    "M_Name": "Pqr",
+    "Ram": 8,
+    "Storage": 28,
+    "Color": "black",
+    "Store": "avc",
+    "Store_Count": "ABC_PQR_8_28_BLACK_AVC"
   }
 ]

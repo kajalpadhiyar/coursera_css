@@ -127,9 +127,9 @@ namespace MobileStore
             }
             else
             {
-                Console.WriteLine("Click 1: View own details\nClick 2 : Exit");
+                Console.WriteLine("Click 1: View own details\nClick 2 : View All Products\nClick 3 : Search Product By Name\nClick 4 : Book an Order\nClick 5 : Exit");
                 int choice = int.Parse(Console.ReadLine());
-                while (choice != 2)
+                while (choice != 5)
                 {
                     switch (choice)
                     {
@@ -141,12 +141,29 @@ namespace MobileStore
                                     Console.WriteLine($"First Name : {firstName}\nLast Name : {lastName}\n Location : {o.Location.ToString()}\n Dob : {o.Dob.ToShortDateString()}");
                                 }
                             }
-                            Console.WriteLine("Click 1: View own details\nClick 2 : Exit");
+                            Console.WriteLine("Click 1: View own details\nClick 2 : View All Products\nClick 3 : Search Product By Name\nClick 4 : Book an Order\nClick 5 : Exit");
+                            choice = int.Parse(Console.ReadLine());
+                            break;
+                        case 2:
+                            //iterate list to display all products
+                            foreach (var o in LProduct)
+                            {
+                                Console.WriteLine($"Product Id : {o.P_Id}\tCompany Name : {o.C_Name}\tMobile Name : {o.M_Name}\tRAM : {o.Ram}\tROM : {o.Storage}\tColors : {o.Color}\tStore Location : {o.Store}\n");
+                            }
+                            Console.WriteLine("Click 1: View own details\nClick 2 : View All Products\nClick 3 : Search Product By Name\nClick 4 : Book an Order\nClick 5 : Exit");
+                            choice = int.Parse(Console.ReadLine());
+                            break;
+                        case 3:
+                            Book_Order.Search_Product();
+                            Console.WriteLine("Click 1: View own details\nClick 2 : View All Products\nClick 3 : Search Product By Name\nClick 4 : Book an Order\nClick 5 : Exit");
                             choice = int.Parse(Console.ReadLine());
                             break;
 
-                        case 2:
-                            Console.WriteLine("Please click 1");
+                        case 4:
+                            Book_Order.Product_Book(firstName);
+                            break;
+                        case 5:
+                            Console.WriteLine("Please click 1 2 3 4");
                             break;
                     }
                 }

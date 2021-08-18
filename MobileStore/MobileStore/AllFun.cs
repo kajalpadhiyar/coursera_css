@@ -45,14 +45,38 @@ namespace MobileStore
             Console.Write("Enter Mobile Name: ");
             string m_name = Console.ReadLine();
             Console.Write("Enter RAM: ");
-            int ram = int.Parse(Console.ReadLine());
+            string ram =Console.ReadLine();
+            int i;
+            bool success = int.TryParse(ram, out i);
+            if (!success)
+            {
+                Console.WriteLine("Please enter integer value");
+                Console.Write("Enter RAM: ");
+                ram = Console.ReadLine();
+                success = int.TryParse(ram, out i);
+            }
             Console.Write("Enter ROM: ");
-            int rom = int.Parse(Console.ReadLine());
+            string rom = Console.ReadLine();
+            int j;
+            bool r_success = int.TryParse(rom, out j);
+            if (!r_success)
+            {
+                Console.WriteLine("Please enter integer value");
+                Console.Write("Enter ROM: ");
+                rom = Console.ReadLine();
+                r_success = int.TryParse(rom, out j);
+            }
+
             Console.Write("Enter color: ");
             string color = Console.ReadLine();
-
             Console.Write("Enter store: ");
             string store = Console.ReadLine();
+            if (String.IsNullOrEmpty(c_name) || String.IsNullOrEmpty(m_name) || String.IsNullOrEmpty(color) || i == 0 || j == 0 || String.IsNullOrEmpty(store))
+            {
+                Console.WriteLine("All fields are required");
+            }
+            else 
+            { 
 
             int id = LProduct.Count() + 1;
             //assigning values to the keys
@@ -61,16 +85,17 @@ namespace MobileStore
                 P_Id = id,
                 C_Name = c_name,
                 M_Name = m_name,
-                Ram = ram,
-                Storage = rom,
+                Ram = i,
+                Storage = j,
                 Color = color,
                 Store = store,
-                Store_Count = (c_name + "_" + m_name + "_" + ram + "_" + rom + "_" + color + "_" + store).ToUpper()
+                Store_Count = (c_name + "_" + m_name + "_" + i + "_" + j + "_" + color + "_" + store).ToUpper()
             };
             LProduct.Add(dproduct);
             var jsonString = JsonConvert.SerializeObject(LProduct, Newtonsoft.Json.Formatting.Indented);
             File.WriteAllText(@"Product.json", jsonString);
             Console.WriteLine("Successfully Added");
+        }
 
         }
 
